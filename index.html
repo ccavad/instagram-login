@@ -18,7 +18,11 @@
         <img class="logo" src="./assets/instagram-text-icon.svg" alt="instagram text logo" />
         <form>
           <input class="glass" type="text" placeholder="Phone number, username or email address" />
-          <input class="glass" type="password" placeholder="Password" />
+          <div class="password-field">
+
+            <input class="glass" type="password" placeholder="Password" />
+            <ion-icon id="ionicon" name="eye-off-outline"></ion-icon>
+          </div>
           <a href="#">Forgotten password?</a>
           <input type="submit" value="Log In" />
         </form>
@@ -27,7 +31,7 @@
           <span>OR</span>
           <div class="line"></div>
         </div>
-        <a href="#">
+        <a href="#" class="loginbtn">
           <img class="fblogo" src="./assets/fblogo.png" alt="facebook logo" />
           Log In with Facebook
         </a>
@@ -42,8 +46,20 @@
     </div>
   </div>
 
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <script>
-    // document.addEventListener("click", e => console.log(e.target))
+    const passwordInput = document.querySelector(".password-field input");
+    const ionicon = document.querySelector("#ionicon");
+    ionicon.addEventListener("click", () => {
+      if (ionicon.name === "eye-off-outline") {
+        ionicon.name = "eye-outline";
+        passwordInput.type = "text";
+      } else if (ionicon.name === "eye-outline") {
+        ionicon.name = "eye-off-outline";
+        passwordInput.type = "password"
+      }
+    })
   </script>
 </body>
 
